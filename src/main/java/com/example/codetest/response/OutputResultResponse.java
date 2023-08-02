@@ -1,4 +1,4 @@
-package com.example.codetest.service.dto;
+package com.example.codetest.response;
 
 import lombok.Data;
 
@@ -6,7 +6,7 @@ import lombok.Data;
  * 输出结果
  */
 @Data
-public class OutputResultDTO {
+public class OutputResultResponse {
 
     private String status;
     private String msg;

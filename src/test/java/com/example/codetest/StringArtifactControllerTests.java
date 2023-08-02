@@ -1,15 +1,14 @@
 package com.example.codetest;
 
-import com.example.codetest.controller.StringArtifactController;
+import com.example.codetest.dto.StringArtifactDTO;
 import com.example.codetest.entity.StringArtifact;
-import com.example.codetest.service.dto.OutputResultDTO;
+import com.example.codetest.response.OutputResultResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -45,13 +44,13 @@ public class StringArtifactControllerTests {
 
     @Test
     public void testStringArtifactController() throws Exception {
-        OutputResultDTO outputResultDTO = new OutputResultDTO();
-        StringArtifact strArtifact = new StringArtifact();
-        strArtifact.setInput("aabcccbbad");
-        strArtifact.setRequireType("BasicStringArtifact");
+        OutputResultResponse outputResultResponse = new OutputResultResponse();
+        StringArtifactDTO strArtifactDTO = new StringArtifactDTO();
+        strArtifactDTO.setInput("aabcccbbad");
+        strArtifactDTO.setRequireType("BasicStringArtifact");
 
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.post("/StringArtifact/resolvedStr")
-                .content(mapper.writeValueAsString(strArtifact))
+                .content(mapper.writeValueAsString(strArtifactDTO))
                 .contentType(MediaType.APPLICATION_JSON);
 
 
@@ -66,13 +65,13 @@ public class StringArtifactControllerTests {
 
     @Test
     public void testStringArtifactController2() throws Exception {
-        OutputResultDTO outputResultDTO = new OutputResultDTO();
-        StringArtifact strArtifact = new StringArtifact();
-        strArtifact.setInput("aabcccbbad");
-        strArtifact.setRequireType("AdvancedStringArtifact");
+        OutputResultResponse outputResultResponse = new OutputResultResponse();
+        StringArtifactDTO strArtifactDTO = new StringArtifactDTO();
+        strArtifactDTO.setInput("aabcccbbad");
+        strArtifactDTO.setRequireType("AdvancedStringArtifact");
 
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.post("/StringArtifact/resolvedStr")
-                .content(mapper.writeValueAsString(strArtifact))
+                .content(mapper.writeValueAsString(strArtifactDTO))
                 .contentType(MediaType.APPLICATION_JSON);
 
 
